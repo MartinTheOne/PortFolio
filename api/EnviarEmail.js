@@ -1,7 +1,8 @@
 import nodemailer from 'nodemailer';
 
 export default async function EnviarEmail(req, res) {
-  if (req.method === 'POST') {
+  if (req.method === 'POST')
+     {
     const { nombre, apellido, correo, telefono, descripcion } = req.body;
 
     if (!nombre || !apellido || !correo || !telefono || !descripcion) {
