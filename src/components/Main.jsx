@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -15,10 +16,12 @@ const Main = () => {
             No SQL: MongoDB, FireBase, React, Tailwind CSS.
           </p>
           <div className="flex mt-6 space-x-4">
+            <Link to="/contacto">
             <button className="px-4 md:px-6 py-3 bg-black text-white font-medium 
               hover:bg-green-400 hover:text-black transition duration-300">
               Contactame
             </button>
+            </Link>
             <button className="px-4 md:px-6 py-3 bg-gray-200 text-black font-medium 
               hover:bg-gray-300 transition duration-300">
               Leer más

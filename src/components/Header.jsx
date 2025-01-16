@@ -71,7 +71,7 @@ const Header = () => {
                             `}>
                                 <li className={`${isMenuOpen ? "hover:bg-gray-300 rounded-md w-[150px] text-center p-1" : ""}`}>
                                     <Link
-                                        to="/soluciones"
+                                        
                                         onClick={closeMenu}
                                         className="block text-lg md:text-base font-medium text-gray-800 hover:text-black transition-colors duration-300"
                                     >
@@ -80,7 +80,7 @@ const Header = () => {
                                 </li>
                                 <li className={`${isMenuOpen ? "hover:bg-gray-300 rounded-md w-[150px] text-center p-1" : ""}`}>
                                     <Link
-                                        to="/acerca-de-mi"
+                                        
                                         onClick={closeMenu}
                                         className="block text-lg md:text-base font-medium text-gray-800 hover:text-black transition-colors duration-300"
                                     >
