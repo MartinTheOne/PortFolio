@@ -43,7 +43,7 @@ const Main = () => {
         <div className="flex flex-col md:flex-row items-center relative p-6 md:p-12">
           <div className="w-full md:w-1/3 mb-8 md:mb-0">
             <img
-              src="/heart_notify.png"
+              src="/heart_notify-min.png"
               alt="Icon Heart"
               className="w-full max-w-sm mx-auto md:w-96 filter drop-shadow-lg 
                 transform -translate-y-4"
@@ -59,7 +59,7 @@ const Main = () => {
 
           <div className="absolute right-0 bottom-0 hidden md:block opacity-60">
             <img
-              src="/fuego.png"
+              src="/fuego-min.png"
               alt="Fire Icon"
               className="w-64 transform translate-y-1/4"
             />
