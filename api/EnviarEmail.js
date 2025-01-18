@@ -19,14 +19,14 @@ export default async function EnviarEmail(req, res) {
           console.error('Error en la verificación de correo:', err);
           return res.status(500).json({ message: 'Error en la verificación de correo' });
         }
-
+        console.log(response.body)
         const { result } = response.body;
         if (result === 'valid') {
-
           enviarCorreo(nombre, apellido, correo, telefono, descripcion, res);
         } else {
-          return res.status(402).json({ message: 'Correo electrónico no válido' });
+          return res.status(422).json({ message: 'Correo electrónico no válido' });
         }
+        
       });
     } catch (error) {
       console.error('Error al configurar la verificación de correo:', error);

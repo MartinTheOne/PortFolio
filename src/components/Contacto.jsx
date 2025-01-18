@@ -26,15 +26,10 @@ function Contacto({ descripcionInicial }) {
       const resul = await fetch("/api/EnviarEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre,
-          apellido,
-          correo,
-          telefono,
-          descripcion,
-        }),
+        body: JSON.stringify({ nombre, apellido, correo, telefono, descripcion }),
       });
-      if (resul.status === 200) {
+    
+      if (resul.ok) {
         setNombre("");
         setApellido("");
         setCorreo("");
@@ -45,22 +40,24 @@ function Contacto({ descripcionInicial }) {
           setIsDisabled(false);
           navigate("/");
         }, 2000);
-      }
-      else if(resul.status==402){
-        setError(true)
-        setIsDisabled(false)
-      }
-      else if(resul.status==400){
-        setIsDisabled(false)
-       return notyf.error("Complete los campos!!")
-      }
-      else {
-        setIsDisabled(false)
-        return notyf.error("Hubo un error al enviar el formulario");
+      } else {
+    
+        if (resul.status === 422) {
+          setError(true);
+          notyf.error("Correo electrónico no válido");
+        } else if (resul.status === 400) {
+          notyf.error("Complete los campos");
+        } else {
+          notyf.error("Hubo un error al enviar el formulario");
+        }
+    
+        setIsDisabled(false);
       }
     } catch (error) {
-      setIsDisabled(false)
+      notyf.error("Error al conectar con el servidor");
+      setIsDisabled(false);
     }
+    
   };
 
   return (
