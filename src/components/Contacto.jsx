@@ -13,22 +13,6 @@ function Contacto({ descripcionInicial }) {
   const [error,setError]=useState(false)
   const navigate = useNavigate();
 
-  const verifiEmail=async()=>{
-    setError(false)
-    const resul=await fetch(`https://api.quickemailverification.com/v1/verify?email=${correo}&apikey=${apiKey}`)
-    const datos= await resul.json();
-    if(resul.status==200){
-      if(datos.result=="valid")
-      {
-        return true;
-      }
-      else if(datos.result=="invalid"){
-        return false;
-      }
-    }else{
-      return false;
-    }
-  }
 
   const enviarEmai = async (e) => {
     e.preventDefault();
@@ -38,11 +22,6 @@ function Contacto({ descripcionInicial }) {
       return notyf.error("Complete todos los campos!!");
     }
     setIsDisabled(true);  
-
-    if(!verifiEmail()){
-      return setError(true)
-    }
-    if(!error) return;
 
     try {
       const resul = await fetch("/api/EnviarEmail", {
@@ -67,7 +46,13 @@ function Contacto({ descripcionInicial }) {
           setIsDisabled(false);
           navigate("/");
         }, 2000);
-      } else {
+      }
+      else if(resul.status==400){
+        console.log("correo no valido");
+        setIsDisabled(false)
+      }
+      else {
+        setIsDisabled(false)
         return notyf.error("Hubo un error al enviar el formulario");
       }
     } catch (error) {
