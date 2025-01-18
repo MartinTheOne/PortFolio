@@ -18,7 +18,7 @@ const SobreMi = () => {
         {/* Imagen o video opcional */}
         <div className="w-full md:w-1/2 mt-6">
           <img
-            src="/fotoPerfil-min.jpg"
+            src="/fotoPerfil-min-min.jpg"
             alt="Perfil Martín González"
             className="rounded-full sm:rounded-lg shadow-lg w-full"
           />
