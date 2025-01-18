@@ -61,11 +61,31 @@ async function enviarCorreo(nombre, apellido, correo, telefono, descripcion, res
     };
 
     const mailOptionsForUser = {
-      from: 'Martin Gonzalez',
+      from: '"Martin Gonzalez" <gonzalezmartinnatanael@gmail.com>',
       to: correo,
-      subject: `Gracias por contactarme, ${nombre}!`,
-      text: `Hola ${nombre},\n\nGracias por tu mensaje. En breve me pondré en contacto contigo.\n\nSaludos cordiales,\nMartin Gonzalez.`,
+      subject: `¡Gracias por contactarme, ${nombre}!`,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+          <h2 style="color: #4CAF50;">Hola, ${nombre}!</h2>
+          <p>
+            Muchas gracias por contactarte conmigo. Estoy muy emocionado por charlar contigo sobre:
+          </p>
+          <blockquote style="background-color: #f9f9f9; padding: 10px; border-left: 4px solid #4CAF50;">
+            ${descripcion}
+          </blockquote>
+          <p>En breve, me pondré en contacto contigo para coordinar los detalles.</p>
+          <p>¡Saludos cordiales!</p>
+          <p style="color: #666;">Martin Gonzalez<br>
+            <a href="mailto:gonzalezmartinnatanael@gmail.com" style="color: #4CAF50;">gonzalezmartinnatanael@gmail.com</a>
+          </p>
+          <hr>
+          <p style="font-size: 12px; color: #999;">
+            Este correo fue generado automáticamente. Si tienes alguna duda, no dudes en escribirme.
+          </p>
+        </div>
+      `,
     };
+    
 
     await transporter.sendMail(mailOptionsForAdmin);
     await transporter.sendMail(mailOptionsForUser);

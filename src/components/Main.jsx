@@ -11,7 +11,7 @@ const Main = () => {
           </h1>
           <p className="text-base md:text-lg mt-4">
             Un programador argentino con experiencia en el desarrollo Backend. 
-            Actualmente trabajo en Educa Interactive y estudio en la UTN FRT. Me apasiona crear soluciones innovadoras 
+            Actualmente trabajo en Educa Interactive y estudio en UTN FRT. Me apasiona crear soluciones innovadoras 
             y enfrentar nuevos desafíos en tecnología.
           </p>
 
