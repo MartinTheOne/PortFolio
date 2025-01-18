@@ -9,7 +9,7 @@ export default async function EnviarEmail(req, res) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios' });
     }
 
-    const apiKey = process.env.VERIFI_EMAIL;
+    const apiKey = process.env.VERIFI_EMAIl;
 
     try {
       const qevClient = quickemailverification.client(apiKey).quickemailverification();
