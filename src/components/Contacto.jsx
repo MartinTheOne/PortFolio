@@ -3,7 +3,6 @@ import notyf from "../utils/notificaicon";
 import { useNavigate } from "react-router-dom";
 
 function Contacto({ descripcionInicial }) {
-  const apiKey=process.env.REACT_APP_VERIFI_EMAI;
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [correo, setCorreo] = useState("");
@@ -47,16 +46,20 @@ function Contacto({ descripcionInicial }) {
           navigate("/");
         }, 2000);
       }
-      else if(resul.status==400){
-        console.log("correo no valido");
+      else if(resul.status==402){
+        setError(true)
         setIsDisabled(false)
+      }
+      else if(resul.status==400){
+        setIsDisabled(false)
+       return notyf.error("Complete los campos!!")
       }
       else {
         setIsDisabled(false)
         return notyf.error("Hubo un error al enviar el formulario");
       }
     } catch (error) {
-      console.log(error);
+      setIsDisabled(false)
     }
   };
 

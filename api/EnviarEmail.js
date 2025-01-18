@@ -22,10 +22,10 @@ export default async function EnviarEmail(req, res) {
 
         const { result } = response.body;
         if (result === 'valid') {
-          
+
           enviarCorreo(nombre, apellido, correo, telefono, descripcion, res);
         } else {
-          return res.status(400).json({ message: 'Correo electrónico no válido' });
+          return res.status(402).json({ message: 'Correo electrónico no válido' });
         }
       });
     } catch (error) {
@@ -61,14 +61,14 @@ async function enviarCorreo(nombre, apellido, correo, telefono, descripcion, res
     };
 
     const mailOptionsForUser = {
-      from: process.env.CORREO,
+      from: 'Martin Gonzalez',
       to: correo,
-      subject: `Gracias por contactar conmigo, ${nombre}!`,
-      text: `Hola ${nombre},\n\nGracias por tu mensaje. En breve me pondré en contacto contigo para charlar sobre "${descripcion}".\n\nSaludos cordiales!`,
+      subject: `Gracias por contactarme, ${nombre}!`,
+      text: `Hola ${nombre},\n\nGracias por tu mensaje. En breve me pondré en contacto contigo.\n\nSaludos cordiales,\nMartin Gonzalez.`,
     };
 
-    await transporter.sendMail(mailOptionsForAdmin); 
-    await transporter.sendMail(mailOptionsForUser);  
+    await transporter.sendMail(mailOptionsForAdmin);
+    await transporter.sendMail(mailOptionsForUser);
 
     res.status(200).json({ message: 'Correos enviados exitosamente' });
   } catch (error) {

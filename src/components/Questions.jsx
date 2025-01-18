@@ -31,7 +31,6 @@ const Questions = ({ setDescripcion }) => {
               <Link
                 to="/contacto"
                 onClick={() => {
-                  console.log(question);
                   setDescripcion(question);
                 }}
                 key={index}
