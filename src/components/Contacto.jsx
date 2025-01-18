@@ -3,7 +3,7 @@ import notyf from "../utils/notificaicon";
 import { useNavigate } from "react-router-dom";
 
 function Contacto({ descripcionInicial }) {
-  const apiKey=process.env.APIKEY_VERIFI_EMAIL;
+  const apiKey=process.env.REACT_APP_VERIFI_EMAI;
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [correo, setCorreo] = useState("");
