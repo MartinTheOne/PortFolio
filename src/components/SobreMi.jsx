@@ -36,7 +36,7 @@ const SobreMi = () => {
                 Desarrollo web con <span className="font-bold">React</span> y <span className="font-bold">Tailwind CSS</span>.
               </li>
               <li>
-                Bases de datos: <span className="font-bold">SQL</span> y <span className="font-bold">MongoDB</span>.
+                Bases de datos: <span className="font-bold">SQL</span> y <span className="font-bold">No SQl</span>.
               </li>
               <li>
                 Integración de APIs y soluciones escalables.
